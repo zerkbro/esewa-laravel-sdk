@@ -1,20 +1,15 @@
 {
-  "name": "cixware/esewa-php-sdk",
+  "name": "zerkbro/esewa-laravel-sdk",
   "version": "2.6.0",
   "type": "library",
-  "description": "eSewa payment gateway integration in PHP.",
-  "homepage": "https://github.com/cixware/esewa-php-sdk",
+  "description": "eSewa payment gateway integration in Laravel.",
+  "homepage": "https://github.com/zerkbro/esewa-laravel-sdk",
   "license": "MIT",
   "authors": [
     {
-      "name": "Cixware",
-      "email": "support@cixware.io",
-      "homepage": "https://cixware.io"
-    },
-    {
-      "name": "Madan Sapkota",
-      "email": "contact+github@madansapkota.com",
-      "homepage": "https://madansapkota.com"
+      "name": "Subash Sharma",
+      "email": "contact+zerkxubasb@gmail.com",
+      "homepage": "https://zerkbro.com"
     }
   ],
   "keywords": [
@@ -44,13 +39,13 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Cixware\\Esewa\\EsewaServiceProvider"
+        "ZerkBro\\Laravel\\EsewaServiceProvider"
       ]
     }
   },
   "autoload": {
     "psr-4": {
-      "Cixware\\Esewa\\": "src"
+      "ZerkBro\\": "src"
     }
   },
   "autoload-dev": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cixware\Esewa;
+namespace ZerkBro\Esewa;
 
 use Illuminate\Support\ServiceProvider;
 
