@@ -7,7 +7,7 @@ final class Config
     /**
      * The API url for development mode
      */
-    public string $apiUrl = 'https://uat.esewa.com.np';
+    public string $apiUrl;
 
     /**
      * The merchant code provided by eSewa
@@ -24,15 +24,16 @@ final class Config
      */
     public string $failureUrl;
 
-    public function __construct(string $successUrl, string $failureUrl, ?string $merchantCode = null)
+    public function __construct()
     {
-        $this->successUrl = $successUrl;
-        $this->failureUrl = $failureUrl;
-        $this->merchantCode = $merchantCode ?? 'EPAYTEST';
+        $this->apiUrl = config('esewa.api_url');
+        $this->merchantCode = config('esewa.merchant_code');
+        $this->successUrl = config('esewa.success_url');
+        $this->failureUrl = config('esewa.failure_url');
 
         // set API url for production mode
-        if (strtoupper($this->merchantCode) !== 'EPAYTEST') {
-            $this->apiUrl = 'https://esewa.com.np';
-        }
+        // if (strtoupper($this->merchantCode) !== 'EPAYTEST') {
+        //     $this->apiUrl = 'https://esewa.com.np';
+        // }
     }
 }

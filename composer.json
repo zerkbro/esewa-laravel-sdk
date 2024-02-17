@@ -41,7 +41,13 @@
     "preferred-install": "dist",
     "sort-packages": true
   },
-  "extra": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Cixware\\Esewa\\EsewaServiceProvider"
+      ]
+    }
+  },
   "autoload": {
     "psr-4": {
       "Cixware\\Esewa\\": "src"

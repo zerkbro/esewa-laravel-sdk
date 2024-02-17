@@ -6,7 +6,7 @@ use Exception;
 
 final class Client
 {
-    private ?Config $config;
+    private Config $config;
 
     public function __construct(Config $config)
     {
@@ -14,12 +14,11 @@ final class Client
     }
 
     /**
-     * This method creates the form in runtime and post the data to eSewa server.
+     * This method creates the form data for eSewa server.
      */
-    public function process(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): void
+    public function prepareFormData(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): array
     {
-        // format form attributes
-        $formInputs = [
+        return [
             'scd' => $this->config->merchantCode,
             'su' => $this->config->successUrl,
             'fu' => $this->config->failureUrl . '?' . http_build_query(['pid' => $productId]),
@@ -30,18 +29,31 @@ final class Client
             'pdc' => $deliveryAmount,
             'tAmt' => $amount + $taxAmount + $serviceAmount + $deliveryAmount,
         ];
+    }
 
-        // generate form from attributes
-        $htmlForm = '<form method="POST" action="' . ($this->config->apiUrl . '/epay/main') . '" id="esewa-form">';
+    /**
+     * This method creates the form HTML for eSewa server.
+     */
+    public function generateFormHtml(array $formData): string
+    {
+        $formHtml = '<form method="POST" action="' . ($this->config->apiUrl . '/epay/main') . '" id="esewa-form">';
 
-        foreach ($formInputs as $name => $value):
-            $htmlForm .= sprintf('<input name="%s" type="hidden" value="%s">', $name, $value);
-        endforeach;
+        foreach ($formData as $name => $value) {
+            $formHtml .= sprintf('<input name="%s" type="hidden" value="%s">', $name, $value);
+        }
 
-        $htmlForm .= '</form><script type="text/javascript">document.getElementById("esewa-form").submit();</script>';
+        $formHtml .= '</form><script type="text/javascript">document.getElementById("esewa-form").submit();</script>';
 
-        // output the form
-        echo $htmlForm;
+        return $formHtml;
+    }
+
+    /**
+     * This method processes the payment by preparing form data and generating form HTML.
+     */
+    public function process(string $productId, float $amount, float $taxAmount, float $serviceAmount = 0.0, float $deliveryAmount = 0.0): string
+    {
+        $formData = $this->prepareFormData($productId, $amount, $taxAmount, $serviceAmount, $deliveryAmount);
+        return $this->generateFormHtml($formData);
     }
 
     /**

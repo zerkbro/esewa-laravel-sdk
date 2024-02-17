@@ -7,7 +7,7 @@
 [![Downloads](https://img.shields.io/packagist/dt/cixware/esewa-php-sdk.svg?style=flat&label=Downloads)](https://packagist.org/packages/cixware/esewa-php-sdk)
 ![License](https://img.shields.io/github/license/cixware/esewa-php-sdk)
 
-We at [Cixware] develop and maintain the **eSewa SDK for PHP**, making it easy for developers to integrate the eSewa
+We at [Cixware] develop and maintain the **eSewa SDK for LARAVEL Framework**, making it easy for developers to integrate the eSewa
 payment service into their PHP code. Find more details on the [eSewa Documentation] website.
 
 ## Getting Started
@@ -18,11 +18,24 @@ payment service into their PHP code. Find more details on the [eSewa Documentati
 
 ## Installation
 
-**Install the SDK** – Using [Composer] is the recommended way to install the eSewa SDK for PHP. The SDK is available
+**Install the SDK** – Using [Composer] is the recommended way to install the eSewa SDK for Laravel. The SDK is available
 via [Packagist] under the [`cixware/esewa-php-sdk`][install-packagist] package.
 
 ```
 composer require cixware/esewa-php-sdk
+```
+
+## Publishing The Configurations
+```
+php artisan vendor:publish --tag=esewa
+```
+## .env Settings
+**inside the .env file use these below config values for quick setup.
+```
+ESEWA_API_URL=https://uat.esewa.com.np
+ESEWA_MERCHANT_CODE=YOUR_MERCHANT_CODE
+ESEWA_SUCCESS_URL=YOUR_SUCCESS_URL
+ESEWA_FAILURE_URL=YOUR_FAILURE_URL
 ```
 
 ## Getting Help
@@ -36,7 +49,20 @@ We track bugs and feature requests using GitHub issues and prioritize addressing
 
 ## Quick Examples
 
-### Create an eSewa client
+### Easily Create an eSewa client [ Latest method ]
+In this latest method we have made it more easier to implement in laravel projects.
+
+```php
+// use the namespace
+use Cixware\Esewa\Client;
+
+// Initialize eSewa client
+$esewa = new Client();
+
+// Process payment
+$esewa->process('P101W201', 100, 15, 80, 50);
+```
+### Create an eSewa client [ older method ]
 
 ```php
 // Init composer autoloader.
