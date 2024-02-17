@@ -1,4 +1,4 @@
-# eSewa SDK for PHP
+# eSewa SDK for LARAVEL
 
 [![@cixware on Twitter](https://img.shields.io/badge/Twitter-%40cixware-blue.svg?style=flat&logo=twitter)](https://twitter.com/cixware)
 [![@cixware on Facebook](https://img.shields.io/badge/Facebok-%40cixware-blue.svg?style=flat&logo=facebook)](https://www.facebook.com/cixware)
@@ -21,8 +21,13 @@ payment service into their PHP code. Find more details on the [eSewa Documentati
 **Install the SDK** – Using [Composer] is the recommended way to install the eSewa SDK for Laravel. The SDK is available
 via [Packagist] under the [`cixware/esewa-php-sdk`][install-packagist] package.
 
+**Laravel Compatible File**
 ```
-composer require cixware/esewa-php-sdk
+composer require zerkbro/esewa-php-sdk
+```
+**Orginal File**
+```
+composer require cixaware/esewa-php-sdk
 ```
 
 ## Publishing The Configurations
@@ -30,7 +35,7 @@ composer require cixware/esewa-php-sdk
 php artisan vendor:publish --tag=esewa
 ```
 ## .env Settings
-**inside the .env file use these below config values for quick setup.
+inside the **.env** file use these below config values for quick setup.
 ```
 ESEWA_API_URL=https://uat.esewa.com.np
 ESEWA_MERCHANT_CODE=YOUR_MERCHANT_CODE
