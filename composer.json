@@ -1,6 +1,6 @@
 {
   "name": "zerkbro/esewa-laravel-sdk",
-  "version": "2.6.0",
+  "version": "1.5",
   "type": "library",
   "description": "eSewa payment gateway integration in Laravel.",
   "homepage": "https://github.com/zerkbro/esewa-laravel-sdk",

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Cixware\Esewa;
+namespace ZerkBro\Esewa;
 
 final class Config
 {

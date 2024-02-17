@@ -1,14 +1,7 @@
 # eSewa SDK for LARAVEL
 
-[![@cixware on Twitter](https://img.shields.io/badge/Twitter-%40cixware-blue.svg?style=flat&logo=twitter)](https://twitter.com/cixware)
-[![@cixware on Facebook](https://img.shields.io/badge/Facebok-%40cixware-blue.svg?style=flat&logo=facebook)](https://www.facebook.com/cixware)
-![PHP Version](https://img.shields.io/packagist/php-v/cixware/esewa-php-sdk)
-![Build](https://img.shields.io/github/actions/workflow/status/cixware/esewa-php-sdk/install.yml?branch=main&logo=github)
-[![Downloads](https://img.shields.io/packagist/dt/cixware/esewa-php-sdk.svg?style=flat&label=Downloads)](https://packagist.org/packages/cixware/esewa-php-sdk)
-![License](https://img.shields.io/github/license/cixware/esewa-php-sdk)
-
-We at [Cixware] develop and maintain the **eSewa SDK for LARAVEL Framework**, making it easy for developers to integrate the eSewa
-payment service into their PHP code. Find more details on the [eSewa Documentation] website.
+This package is  **eSewa SDK for LARAVEL Framework**, making it easy for developers to integrate the eSewa
+payment service into Laravel Application Easily. Find more details on the [eSewa Documentation] website.
 
 ## Getting Started
 
@@ -19,11 +12,10 @@ payment service into their PHP code. Find more details on the [eSewa Documentati
 ## Installation
 
 **Install the SDK** – Using [Composer] is the recommended way to install the eSewa SDK for Laravel. The SDK is available
-via [Packagist] under the [`cixware/esewa-php-sdk`][install-packagist] package.
 
 **Laravel Compatible File**
 ```
-composer require zerkbro/esewa-php-sdk
+composer require zerkbro/esewa-laravel-sdk
 ```
 **Orginal File**
 ```
@@ -49,9 +41,8 @@ ESEWA_FAILURE_URL=YOUR_FAILURE_URL
 We track bugs and feature requests using GitHub issues and prioritize addressing them ASAP.
 
 * For account and payment related concerns, please reach [eSewa] by calling or emailing them.
-* If you believe you have found a bug, please [open an issue](https://github.com/cixware/esewa-php-sdk/issues/new) on
+* If you believe you have found a bug, please [open an issue](https://github.com/zerkbro/esewa-laravel-sdk/issues/new) on
   GitHub.
-* For assistance with integrating eSewa into your application, don't hesitate to contact [Cixware].
 
 ## Quick Examples
 
@@ -68,29 +59,6 @@ $esewa = new Client();
 // Process payment
 $esewa->process('P101W201', 100, 15, 80, 50);
 ```
-### Create an eSewa client [ older method ]
-
-```php
-// Init composer autoloader.
-require 'vendor/autoload.php';
-
-use Cixware\Esewa\Client;use Cixware\Esewa\Config;
-
-// Set success and failure callback URLs.
-$successUrl = 'https://example.com/success.php';
-$failureUrl = 'https://example.com/failed.php';
-
-// Config for development.
-$config = new Config($successUrl, $failureUrl);
-
-// Config for production.
-$config = new Config($successUrl, $failureUrl, 'b4e...e8c753...2c6e8b');
-
-// Initialize eSewa client.
-$esewa = new Client($config);
-```
-
-Here `b4e...e8c753...2c6e8b` is merchant code retrieved from eSewa.
 
 ### Make Payment
 
@@ -151,19 +119,3 @@ please stick to the following guidelines when submitting code:
 - All submitted code must pass relevant tests.
 - Proper documentation and clean code practices are a must.
 - Please make pull requests to the `main` branch.
-
-Thank you for your support and contributions. We look forward to reviewing your code.
-
-[eSewa]: https://esewa.com.np
-
-[eSewa Documentation]: https://developer.esewa.com.np
-
-[Cixware]: https://cixware.io
-
-[composer]: http://getcomposer.org
-
-[packagist]: http://packagist.org
-
-[install-packagist]: https://packagist.org/packages/cixware/esewa-php-sdk
-
-[PSR]: https://www.php-fig.org/psr
