@@ -20,4 +20,6 @@ return [
 
     'failure_url' => env('ESEWA_FAILURE_URL', 'http://localhost/payment/failure'),
 
+    // 'debug_mode' => env('ESEWA_DEBUG_MODE', true),
+
 ];

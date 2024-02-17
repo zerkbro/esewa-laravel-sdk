@@ -30,10 +30,11 @@ final class Config
         $this->merchantCode = config('esewa.merchant_code');
         $this->successUrl = config('esewa.success_url');
         $this->failureUrl = config('esewa.failure_url');
+        // $this->esewaDebugMode = config('esewa.debug_mode')
 
-        // set API url for production mode
-        // if (strtoupper($this->merchantCode) !== 'EPAYTEST') {
-        //     $this->apiUrl = 'https://esewa.com.np';
-        // }
+        // verifying ESEWA payment is in development or not.
+        if (strtoupper($this->merchantCode) !== 'EPAYTEST') {
+            $this->apiUrl = 'https://esewa.com.np';
+        }
     }
 }

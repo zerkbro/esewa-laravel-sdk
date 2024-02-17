@@ -26,6 +26,9 @@ class EsewaServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Register further more services or bindings here
+        // Registering the Esewa facade
+        $this->app->bind('Esewa', function ($app) {
+            return new Esewa();
+        });
     }
 }

@@ -38,6 +38,7 @@ php artisan vendor:publish --tag=esewa
 inside the **.env** file use these below config values for quick setup.
 ```
 ESEWA_API_URL=https://uat.esewa.com.np
+ESEWA_DEBUG_MODE=true
 ESEWA_MERCHANT_CODE=YOUR_MERCHANT_CODE
 ESEWA_SUCCESS_URL=YOUR_SUCCESS_URL
 ESEWA_FAILURE_URL=YOUR_FAILURE_URL
